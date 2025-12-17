@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarketingOS - Enterprise Project Management</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/ai.css">
+    <link rel="stylesheet" href="css/interactive.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Sidebar -->
+        <aside class="app-sidebar">
+            <div class="logo-area">
+                <div
+                    style="width: 32px; height: 32px; background: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fa-solid fa-bolt" style="color: white; font-size: 14px;"></i>
+                </div>
+                <span>MarketingOS</span>
+            </div>
+
+            <nav class="nav-links" id="main-nav">
+                <!-- Navigation will be populated by JS -->
+            </nav>
+
+            <div style="margin-top: auto; padding: 1rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <div
+                        style="width: 36px; height: 36px; background: var(--accent-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">
+                        G</div>
+                    <div>
+                        <div style="font-size: 0.9rem; font-weight: 500;">Gowtham G.</div>
+                        <div style="font-size: 0.75rem; color: var(--text-secondary);">CMO</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-title">
+                <h2 id="page-title">Overview</h2>
+                <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 2px;">Welcome back, here's
+                    what's happening today.</div>
+            </div>
+            <div class="header-actions">
+                <div style="position: relative;">
+                    <input type="text" placeholder="Search..."
+                        style="padding: 0.5rem 1rem 0.5rem 2.25rem; border-radius: var(--radius-full); border: 1px solid var(--border-light); background: var(--bg-body); width: 240px; font-size: 0.9rem;">
+                    <i class="fa-solid fa-search"
+                        style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-light); font-size: 0.8rem;"></i>
+                </div>
+                <button class="btn btn-ghost" title="Notifications"><i class="fa-regular fa-bell"></i></button>
+                <button class="btn"
+                    style="background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); color: white; border: none;"
+                    onclick="openAImodal()"><i class="fa-solid fa-wand-magic-sparkles"></i> <span
+                        style="margin-left: 4px;">Ask AI</span></button>
+                <button class="btn btn-primary"><i class="fa-solid fa-plus"></i> <span style="margin-left: 4px;">Quick
+                        Create</span></button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="app-main" id="main-content">
+            <!-- Views injected here -->
+        </main>
+    </div>
+
+    <!-- AI Modal -->
+    <div id="ai-modal" class="ai-modal-overlay">
+        <div class="ai-modal">
+            <div class="ai-header">
+                <h3 style="margin:0; font-size:1.5rem;"><i class="fa-solid fa-wand-magic-sparkles"></i> MarketingOS
+                    Intelligence</h3>
+                <p style="margin:4px 0 0 0; opacity:0.9; font-size:0.9rem;">Generate campaigns, tasks, and creative
+                    briefs in seconds.</p>
+            </div>
+            <div class="ai-body">
+                <div id="ai-response-area" style="min-height: 100px; margin-bottom: 20px; display: none;">
+                    <!-- Results injected here -->
+                </div>
+                <label style="font-weight: 500; font-size: 0.9rem;">What would you like to build?</label>
+                <div class="ai-input-area">
+                    <input type="text" id="ai-prompt" class="ai-input"
+                        placeholder="e.g., Plan a Q4 Product Launch for Enterprise...">
+                </div>
+            </div>
+            <div class="ai-footer">
+                <button class="btn btn-ghost" onclick="closeAImodal()">Cancel</button>
+                <button class="btn" style="background:var(--primary); color:white;" onclick="runAI()">
+                    <span id="ai-btn-text">Generate Plan</span>
+                    <div id="ai-loading" class="typing-indicator" style="display:none; margin-left:8px;">
+                        <span></span><span></span><span></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>window.MarketingOS = { views: {} };</script>
+    <script src="js/store.js"></script> <!-- Core State -->
+    <script src="js/views/dashboard.js"></script>
+    <script src="js/views/campaigns.js"></script>
+    <script src="js/views/tasks.js"></script>
+    <script src="js/views/creative.js"></script>
+    <script src="js/views/calendar.js"></script>
+    <script src="js/views/mops.js"></script>
+    <script src="js/views/events.js"></script>
+    <script src="js/views/social.js"></script>
+    <script src="js/views/reports.js"></script>
+    <script src="js/ai.js"></script> <!-- AI Logic -->
+    <script src="js/interaction.js"></script> <!-- Popups & Modals -->
+    <script src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+:root {
+    /* Brand Colors */
+    --primary-hue: 250;
+    --primary-sat: 80%;
+    --primary-light: 60%;
+    --primary: hsl(var(--primary-hue), var(--primary-sat), var(--primary-light));
+    --primary-dark: hsl(var(--primary-hue), var(--primary-sat), 40%);
+    --primary-soft: hsl(var(--primary-hue), var(--primary-sat), 96%);
+
+    --accent-red: hsl(340, 75%, 55%);
+    --accent-green: hsl(150, 70%, 45%);
+    --accent-orange: hsl(25, 90%, 55%);
+    --accent-blue: hsl(210, 85%, 55%);
+    --accent-purple: hsl(270, 70%, 55%);
+
+    /* Neutral Colors - Slate-ish */
+    --bg-body: #f8fafc;
+    --bg-surface: #ffffff;
+    --bg-sidebar: #0f172a; /* Dark Sidebar for contrast */
+    --text-main: #1e293b;
+    --text-secondary: #64748b;
+    --text-light: #94a3b8;
+    --text-on-dark: #f1f5f9;
+    
+    --border-light: #e2e8f0;
+    --border-med: #cbd5e1;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    
+    /* Spacing */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-12: 3rem;
+    
+    /* Radius */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-full: 9999px;
+
+    /* Transitions */
+    --trans-fast: 150ms ease;
+    --trans-med: 300ms ease;
+    
+    /* Font */
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Dark Mode Support (Future proofing) */
+@media (prefers-color-scheme: dark) {
+    /* To implement later if requested, keeping light mode focus for now as its standard for marketing tools */
+}
