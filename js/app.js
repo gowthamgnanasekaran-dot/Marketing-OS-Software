@@ -25,6 +25,15 @@ const navItems = [
 ];
 
 function init() {
+    // Check authentication
+    if (!window.api.token) {
+        document.body.innerHTML = window.MarketingOS.views.auth();
+        return;
+    }
+
+    // Load Data
+    window.Store.initData();
+
     renderSidebar();
 
     // Initial Route

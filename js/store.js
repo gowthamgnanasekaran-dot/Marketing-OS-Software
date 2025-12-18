@@ -78,6 +78,26 @@ const Store = {
         };
     },
 
+
+    // --- INITIALIZATION ---
+    async initData() {
+        console.log('Initializing Data from Backend...');
+        try {
+            // Try to load from API, fall back to localStorage if it fails
+            if (window.api && window.api.token) {
+                const campaigns = await window.api.get('/campaigns');
+                const tasks = await window.api.get('/tasks');
+
+                if (campaigns && campaigns.data) this.state.campaigns = campaigns.data;
+                if (tasks && tasks.data) this.state.tasks = tasks.data;
+            }
+        } catch (err) {
+            console.log('Using local data:', err.message);
+            // Data already loaded from localStorage in state initialization
+        }
+        console.log('Data Initialization Complete');
+    },
+
     // --- ACTIONS ---
 
     // 1. Dashboard Logic
@@ -183,6 +203,19 @@ const Store = {
         };
         this.state.socialPosts.unshift(newPost);
         this.saveState('socialPosts');
+    },
+
+    // --- GENERIC API LOADER ---
+    async load(key, endpoint) {
+        try {
+            const response = await window.api.get(endpoint);
+            // Handle both direct arrays and {data: []} response formats
+            this.state[key] = response.data || response || [];
+            this.notifyListeners(key);
+        } catch (err) {
+            console.error(`Failed to load ${key}`, err);
+            this.state[key] = []; // Set empty array on error
+        }
     },
 
     approvePost(id) {
